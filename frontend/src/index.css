@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 145 35% 10%;
+        /* #102219 */
+
+        --card: 0 0% 100%;
+        --card-foreground: 145 35% 10%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 145 35% 10%;
+
+        --primary: 154 92% 50%;
+        /* #13ec80 */
+        --primary-foreground: 145 50% 5%;
+
+        --secondary: 145 20% 96%;
+        --secondary-foreground: 145 35% 10%;
+
+        --muted: 145 20% 96%;
+        --muted-foreground: 215 16% 47%;
+
+        --accent: 145 30% 96%;
+        --accent-foreground: 145 35% 10%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 214 32% 91%;
+        --input: 214 32% 91%;
+        --ring: 154 92% 50%;
+
+        --radius: 1rem;
+    }
+
+    .dark {
+        --background: 145 35% 10%;
+        /* #102219 */
+        --foreground: 210 40% 98%;
+
+        --card: 145 35% 13%;
+        /* Slightly lighter than bg */
+        --card-foreground: 210 40% 98%;
+
+        --popover: 145 35% 10%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 154 92% 50%;
+        /* #13ec80 */
+        --primary-foreground: 145 50% 5%;
+
+        --secondary: 145 30% 20%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 145 30% 20%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --accent: 145 30% 20%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 145 30% 20%;
+        --input: 145 30% 20%;
+        --ring: 154 92% 50%;
+    }
+}
+
+@layer base {
+    * {
+        border-color: hsl(var(--border));
+    }
+
+    body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+    }
+}
+
+@layer utilities {
+    .glass-panel {
+        @apply bg-white/70 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-xl;
+    }
+
+    .glass-card {
+        @apply bg-white/60 dark:bg-black/20 backdrop-blur-md border border-gray-100/50 dark:border-white/5 shadow-sm transition-all duration-300;
+    }
+
+    .glass-button {
+        @apply bg-white/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 backdrop-blur-sm border border-black/5 dark:border-white/10 transition-all active:scale-95;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(19, 236, 128, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(19, 236, 128, 0.5);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 3s infinite;
+}
